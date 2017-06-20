@@ -7,9 +7,9 @@ from .models import Post
 def post_create(request):
     return HttpResponse("<h1>Wuppud make a new post!!!!</h1>")
 
-def post_detail(request):
+def post_detail(request, id):
     #instance = Post.objects.get(id=2)
-    instance = get_object_or_404(Post, id=5)
+    instance = get_object_or_404(Post, id=id)
     context = {
         "title": instance.title,
         "instance": instance,
