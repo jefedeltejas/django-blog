@@ -7,7 +7,8 @@ from .models import Post
 def post_create(request):
     form = PostForm()
     if request.method == "POST":
-        print(request.POST)
+        print(request.POST.get("content"))
+        print(request.POST.get("title"))
     context = {
         "form": form,
     }
