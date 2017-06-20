@@ -7,10 +7,16 @@ def post_create(request):
     return HttpResponse("<h1>Wuppud make a new post!!!!</h1>")
 
 def post_detail(request):
-    return HttpResponse("<h1>A post in all its glory!!!!</h1>")
+    context = {
+        "title": "Detail"
+    }
+    return render(request, "index.html", context)
 
 def post_list(request):
-    return render(request, "index.html", {})
+    context = {
+        "title": "Yo mama"
+    }
+    return render(request, "index.html", context)
     #return HttpResponse("<h1>Zie master list!!!!</h1>")
 
 def post_update(request):
