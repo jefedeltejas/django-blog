@@ -6,6 +6,10 @@ from .models import Post
 
 def post_create(request):
     form = PostForm(request.POST or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        
     # if request.method == "POST":
     #     print(request.POST.get("title"))
     #     print(request.POST.get("content"))
