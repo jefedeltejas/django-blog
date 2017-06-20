@@ -13,7 +13,7 @@ def post_list(request):
     return HttpResponse("<h1>Zie master list!!!!</h1>")
 
 def post_update(request):
-    return HttpResponse("<h1>UPdate!!!!</h1>")
+    return HttpResponse("<h1>Update!!!!</h1>")
 
 def post_delete(request):
     return HttpResponse("<h1>Delete!!!!</h1>")
