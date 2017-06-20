@@ -10,7 +10,8 @@ def post_detail(request):
     return HttpResponse("<h1>A post in all its glory!!!!</h1>")
 
 def post_list(request):
-    return HttpResponse("<h1>Zie master list!!!!</h1>")
+    return render(request, "index.html", {})
+    #return HttpResponse("<h1>Zie master list!!!!</h1>")
 
 def post_update(request):
     return HttpResponse("<h1>Update!!!!</h1>")
