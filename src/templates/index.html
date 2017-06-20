@@ -6,5 +6,16 @@
   </head>
   <body>
     <h1>{{ title }} is working!</h1>
+
+    {% for obj in object_list %}
+
+    {{ obj.title }}<br/>
+    {{ obj.content }}<br/>
+    {{ obj.updated }}<br/>
+    {{ obj.timestamp }}<br/>
+    {{ obj.id }}<br/><br/><br/>
+
+    {% endfor %}
+
   </body>
 </html>
