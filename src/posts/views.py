@@ -9,7 +9,7 @@ def post_create(request):
 
 def post_detail(request):
     #instance = Post.objects.get(id=2)
-    instance = get_object_or_404(Post, title="Neqw Post")
+    instance = get_object_or_404(Post, id=5)
     context = {
         "title": instance.title,
         "instance": instance,
