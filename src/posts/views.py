@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
@@ -9,8 +10,10 @@ def post_create(request):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-        #message success
+        messages.success(request, "Successfully Created")
         return HttpResponseRedirect(instance.get_absolute_url())
+    else:
+        messages.error(request, "Error : data loss // code blue")
     context = {
         "form": form,
     }
@@ -38,8 +41,10 @@ def post_update(request, id=None):
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()
-        #message success
+        messages.success(request, "Edit saved")
         return HttpResponseRedirect(instance.get_absolute_url())
+    else:
+        messages.error(request, "Error : data loss // code blue")
     context = {
         "title": instance.title,
         "instance": instance,
@@ -48,4 +53,7 @@ def post_update(request, id=None):
     return render(request, "post_form.html", context)
 
 def post_delete(request):
-    return HttpResponse("<h1>Delete!!!!</h1>")
+    instance = get_object_or_404(Post, id=id)
+    instance.deleted()
+    messages.success(request, "Dude, All your data was deleted!")
+    return redirect("posts:list")
