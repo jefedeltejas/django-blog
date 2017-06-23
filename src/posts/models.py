@@ -7,6 +7,8 @@ from django.core.urlresolvers import reverse
 # MVC MODEL VIEW CONTROLLER
 
 def upload_location(instance, filename):
+    #filebase, extension = filename.split(".")
+    #return "%s/%s.%s" %(instance.id, instance.id, extension)
     return "%s/%s" %(instance.id, filename)
 
 class Post(models.Model):
