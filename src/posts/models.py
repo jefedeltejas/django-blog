@@ -13,7 +13,7 @@ from django.utils.text import slugify
 #Post.objects.all()
 #Post.objects.create(user=user, title="Some time")
 class PostManager(models.Manager):
-    def all(self, *args, **kwargs):
+    def active(self, *args, **kwargs):
         return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
 def upload_location(instance, filename):
     #filebase, extension = filename.split(".")
