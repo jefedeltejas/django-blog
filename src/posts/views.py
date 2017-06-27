@@ -40,7 +40,7 @@ def post_detail(request, id):
     return render(request, "post_detail.html", context)
 
 def post_list(request):
-    queryset_list = Post.objects.filter(draft=False).filter(publish__lte=timezone.now())#.all().order_by("-timestamp")
+    queryset_list = Post.objects.all().order_by("-timestamp")
     paginator = Paginator(queryset_list, 7) # Show 25 contacts per page
     page_request_var = "pg"
     page = request.GET.get(page_request_var)
